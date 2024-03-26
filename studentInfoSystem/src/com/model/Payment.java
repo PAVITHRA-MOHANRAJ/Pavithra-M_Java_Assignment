@@ -1,6 +1,7 @@
 package com.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Payment {
 	private int id;
@@ -67,6 +68,26 @@ public class Payment {
 		return "Payment [id=" + id + ", amount=" + amount + ", paymentDate=" + paymentDate + ", studentId=" + studentId
 				+ "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(amount, id, paymentDate, studentId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount) && id == other.id
+				&& Objects.equals(paymentDate, other.paymentDate) && studentId == other.studentId;
+	}
+	
+	
 	
 	
 }

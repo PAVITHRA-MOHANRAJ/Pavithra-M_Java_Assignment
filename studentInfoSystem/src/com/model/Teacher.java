@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.Objects;
+
 public class Teacher {
 	private int id;
 	private String firstName;
@@ -57,6 +59,25 @@ public class Teacher {
 	public String toString() {
 		return "Teacher [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, id, lastName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Teacher other = (Teacher) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName);
+	}
+	
 	
 	
 }

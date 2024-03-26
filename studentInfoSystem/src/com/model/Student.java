@@ -1,6 +1,7 @@
 package com.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Student {
 	private int id;
@@ -89,5 +90,26 @@ public class Student {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
 				+ dateOfBirth + ", email=" + email + ", phoneNumber=" + phoneNumber + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dateOfBirth, email, firstName, id, lastName, phoneNumber);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(dateOfBirth, other.dateOfBirth) && Objects.equals(email, other.email)
+				&& Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(phoneNumber, other.phoneNumber);
+	}
+	
+	
 	
 }
