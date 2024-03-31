@@ -182,6 +182,18 @@ public class CourseDaoImpl implements CourseDao{
 				
 	}
 
+	@Override
+	public void updateTeacherId(int courseCode, int teacherId) throws SQLException {
+		Connection conn = DBUtil.getDBConn();
+		String sql="update courses set teacher_id=? where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, teacherId);
+		pstmt.setInt(2, courseCode);
+		
+		pstmt.executeUpdate();
+		DBUtil.dbClose();	
+	}
+
 	
 
 

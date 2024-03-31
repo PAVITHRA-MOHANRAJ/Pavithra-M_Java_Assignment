@@ -20,6 +20,7 @@ public interface CourseDao {
 	public void updateRecordInCourse(int courseCode, int credits)throws SQLException;
 	public Course DisplayCourseInfo(int courseId)throws InvalidCourseDataException, SQLException;
 	public int getTeacherId(int courseId) throws SQLException, TeacherNotFoundException;
+	public void updateTeacherId(int courseCode, int teacherId) throws SQLException;
 		
 
 }

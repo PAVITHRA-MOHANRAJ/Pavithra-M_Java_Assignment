@@ -86,20 +86,21 @@ public class CourseController {
 					Course course = courseService.validateCourseId(courseCode);
 					System.out.println("Details of the course:");
 					System.out.println(course);
-
 					List<Course> list = courseService.fetchAllCourses();
-					System.out.println("Id" + "\t" + "Credits" + "\t" + "Teacher Id" + "\t" + "Course Name");
-					for (Course c : list) {
-						System.out.println(c.getId() + "\t" + c.getCredits() + "\t" + c.getTeacherId() + "\t\t"
-								+ c.getCourseName());
+					System.out.println("What do you want to update ? (credits / teacherid)");
+					String updateInput = sc.next();
+					if(updateInput.equalsIgnoreCase("credits")) {
+						System.out.println("Enter the updated credits: ");
+						int credits = sc.nextInt();
+						courseService.updateRecordInCourse(list, courseCode, credits);
+						System.out.println("Successfully updated the course information..");
 					}
-
-					System.out.println("Enter the updated credits: ");
-					int credits = sc.nextInt();
-					courseService.updateRecordInCourse(list, courseCode, credits);
-					System.out.println("Successfully updated the course information..");
-					
-
+					else {
+						System.out.println("Enter the updated teacher id: ");
+						teacherId = sc.nextInt();
+						courseService.updateTeacherId(list, courseCode, teacherId);
+						System.out.println("Successfully updated the course information..");
+					}
 				} catch (InvalidCourseDataException | SQLException e) {
 					System.out.println(e.getMessage());
 					e.printStackTrace();
@@ -114,7 +115,9 @@ public class CourseController {
 				try {
 					Course course=courseService.DisplayCourseInfo(courseId1);
 					System.out.println("Details of the course:");
-					System.out.println(course);
+					System.out.println("COURSE ID\tCREDITS\t\tTEACHER ID\tCOURSE NAME");
+					System.out.println(course.getId()+"\t\t"+course.getCredits()+"\t\t"+course.getTeacherId()+"\t\t"+course.getCourseName());
+					
 					
 					
 				} catch (InvalidCourseDataException | SQLException e) {
@@ -133,7 +136,7 @@ public class CourseController {
 					System.out.println(course);
 
 					List<Integer> studentsId=enrollmentService.fetchEnrollmentsByCourseId(courseId);
-					System.out.println(studentsId);
+					System.out.println("Student id =" + studentsId);
 					
 					for(int id : studentsId) {
 						Student student = studentService.getEnrollments(id);

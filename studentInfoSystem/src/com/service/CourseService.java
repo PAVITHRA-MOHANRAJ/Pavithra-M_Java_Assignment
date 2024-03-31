@@ -48,5 +48,9 @@ public class CourseService {
 		return courseDao.getTeacherId(courseId);
 	}
 
+	public void updateTeacherId(List<Course> list, int courseCode, int teacherId) throws SQLException {
+		courseDao.updateTeacherId(courseCode, teacherId);		
+	}
+
 	
 }

@@ -34,4 +34,12 @@ public class TeacherService {
 		return teacherDao.getAssignedCourses(teacherId);
 	}
 
+	public void updateFirstName(int teacherId, String firstName) throws InvalidTeacherDataException, SQLException {
+		teacherDao.updateFirstName(teacherId, firstName);
+	}
+
+	public void updateLastName(int teacherId, String lastName) throws InvalidTeacherDataException, SQLException {
+		teacherDao.updateLastName(teacherId, lastName);
+	}
+
 }

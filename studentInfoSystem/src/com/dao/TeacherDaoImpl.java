@@ -120,4 +120,34 @@ public class TeacherDaoImpl implements TeacherDao {
 		return list;
 	}
 
+	@Override
+	public void updateFirstName(int teacherId, String firstName) throws InvalidTeacherDataException, SQLException {
+		Connection conn = DBUtil.getDBConn();
+		String sql = "update teacher set first_name=? where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, firstName);
+		pstmt.setInt(2, teacherId);
+
+		int rowsAffected = pstmt.executeUpdate();
+		if (rowsAffected != 1) {
+			throw new InvalidTeacherDataException("Error while updating teacher info");
+		}
+		DBUtil.dbClose();
+	}
+
+	@Override
+	public void updateLastName(int teacherId, String lastName)throws InvalidTeacherDataException, SQLException {
+		Connection conn = DBUtil.getDBConn();
+		String sql = "update teacher set last_name=? where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, lastName);
+		pstmt.setInt(2, teacherId);
+
+		int rowsAffected = pstmt.executeUpdate();
+		if (rowsAffected != 1) {
+			throw new InvalidTeacherDataException("Error while updating teacher info");
+		}
+		DBUtil.dbClose();
+	}
+
 }

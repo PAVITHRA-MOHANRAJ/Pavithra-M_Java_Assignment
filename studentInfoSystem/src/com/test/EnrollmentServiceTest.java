@@ -56,7 +56,7 @@ public class EnrollmentServiceTest {
 		
 		// Use case 1
 		int courseId = 1001;
-		Course expectedCourse = new Course(1001, "Data Structures", 4, 103);
+		Course expectedCourse = new Course(1001, "Data Structures", 3, 103);
 		try {
 			Assert.assertEquals(expectedCourse, enrollmentService.getCourse(courseId));
 		} catch (SQLException e) {

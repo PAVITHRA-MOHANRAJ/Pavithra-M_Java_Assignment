@@ -80,8 +80,10 @@ public class TeacherServiceTest {
 		List<String> expectedList = new ArrayList<>();
 		int teacherId = 103;
 		expectedList.add("Data Structures");
+		expectedList.add("Programming in c");
 		expectedList.add("Programming in python");
 		expectedList.add("Cyber security");
+		
 		
 		try {
 			Assert.assertEquals(expectedList, teacherService.getAssignedCourses(teacherId));

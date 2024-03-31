@@ -19,7 +19,7 @@ public class EnrollmentController {
 		
 
 		while (true) {
-			System.out.println("**********ENROLLMENT MODULE OPERATIONS**********");
+			System.out.println("\n**********ENROLLMENT MODULE OPERATIONS**********");
 			System.out.println("Press 1. To retrieve student associated with the enrollment");
 			System.out.println("Press 2. To retrieve the course associated with the enrollment");
 			System.out.println("Press 0. To exit..");

@@ -19,4 +19,8 @@ public interface TeacherDao {
 
 	List<String> getAssignedCourses(int teacherId) throws InvalidTeacherDataException, SQLException;
 
+	void updateFirstName(int teacherId, String firstName) throws InvalidTeacherDataException, SQLException;
+
+	void updateLastName(int teacherId, String lastName) throws InvalidTeacherDataException, SQLException;
+
 }

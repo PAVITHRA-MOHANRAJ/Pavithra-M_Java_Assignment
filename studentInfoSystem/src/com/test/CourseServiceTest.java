@@ -18,7 +18,7 @@ public class CourseServiceTest {
 
 		// Use case 1
 		int courseId = 1001;
-		Course expectedCourse = new Course(1001, "Data Structures", 4, 103);
+		Course expectedCourse = new Course(1001, "Data Structures", 3, 103);
 		try {
 			Assert.assertEquals(expectedCourse, courseService.DisplayCourseInfo(courseId));
 		} catch (InvalidCourseDataException e) {

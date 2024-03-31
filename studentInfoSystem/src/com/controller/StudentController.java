@@ -133,7 +133,7 @@ public class StudentController {
 				break;
 
 			case 6:
-				// To retrieves a list of payment records for the student
+				// To retrieve a list of payment records for the student
 				System.out.println("Enter the student id: ");
 				studentId = sc.nextInt();
 				try {

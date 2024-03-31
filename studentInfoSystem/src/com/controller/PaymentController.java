@@ -16,7 +16,7 @@ public class PaymentController {
 		PaymentService paymentService = new PaymentService();
 
 		while (true) {
-			System.out.println("*********PAYMENT REOCRD OPERATIONS*********");
+			System.out.println("\n*********PAYMENT REOCRD OPERATIONS*********");
 			System.out.println("Press 1: To retrieve the student associated with the payment");
 			System.out.println("Press 2: To retrieve the payment amount");
 			System.out.println("Press 3: To retrieve the payment date");

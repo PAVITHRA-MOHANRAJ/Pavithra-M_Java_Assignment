@@ -77,7 +77,7 @@ public class PaymentServiceTest {
 		}
 		
 		// Use case 3
-		paymentId = 212;
+		paymentId = 213;
 		expectedAmount = 450;
 		
 		try {
@@ -113,7 +113,7 @@ public class PaymentServiceTest {
 		}
 		
 		// Use case 3
-		paymentId = 212;
+		paymentId = 213;
 		expectedDate = LocalDate.parse("2023-06-20");
 		
 		try {

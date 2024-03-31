@@ -38,11 +38,29 @@ public class TeacherController {
 				int teacherId = sc.nextInt();
 				try {
 					teacherService.verifyTeacherId(teacherId);
-					// updating email of teacher
-					System.out.println("Enter the updated email: ");
-					String email = sc.next();
-					teacherService.updateTeacherInfo(teacherId, email);
-					System.out.println("Teacher info updated successfully");
+					System.out.println("What do you want to update: \n1.firstName\n2.lastName\n3.Email");
+					int option = sc.nextInt();
+					if(option == 1) {
+						// updating first name
+						System.out.println("Enter the updated first name:");
+						String firstName = sc.next();
+						teacherService.updateFirstName(teacherId, firstName);
+						System.out.println("First name of teacher updated successfully");
+					}
+					else if (option == 2) {
+						// updating last name
+						System.out.println("Enter the updated last name:");
+						String lastName = sc.next();
+						teacherService.updateLastName(teacherId, lastName);
+						System.out.println("Last name of teacher updated successfully");
+					}
+					else {
+						// updating email of teacher
+						System.out.println("Enter the updated email: ");
+						String email = sc.next();
+						teacherService.updateTeacherInfo(teacherId, email);
+						System.out.println("Email of teacher updated successfully");
+					}	
 				} catch (TeacherNotFoundException | SQLException | InvalidTeacherDataException e) {
 					System.out.println(e.getMessage());
 				}
@@ -82,6 +100,7 @@ public class TeacherController {
 
 			default:
 				System.out.println("Invalid choice");
+				break;
 
 			}// switch ends
 		} // while ends
